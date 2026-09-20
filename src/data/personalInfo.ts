@@ -4,6 +4,8 @@ const github = 'github.com/lulujsx'
 const linkedin = 'linkedin.com/in/luanavallejos'
 export const email = 'luanalorenavallejos@gmail.com'
 
+
+
 const stackItems = {
   frontend: ['React', 'Next.js', 'TypeScript', 'JavaScript'],
   mobile: ['Flutter', 'Dart', 'React Native', 'Expo', 'Ionic'],
