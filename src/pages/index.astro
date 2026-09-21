@@ -67,15 +67,55 @@ for (const [k, v] of Object.entries(t)) { translations.es[k] = v.es; translation
 const T = (key: string) => t[key]?.es ?? key
 
 const profile = es.profile
+
+const siteUrl = 'https://lulujs.dev/'
+const pageTitle = 'Luana Vallejos — Frontend & Mobile Developer'
+const pageDescription = 'Frontend & Mobile Developer based in Buenos Aires, building digital experiences where code, design and product thinking meet.'
+const ogImage = 'https://lulujs.dev/YOSHI.jpeg'
+const ogImageAlt = 'Portrait photo of Luana Vallejos, Frontend & Mobile Developer'
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  url: 'https://lulujs.dev',
+  jobTitle: profile.role,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Buenos Aires',
+    addressCountry: 'AR',
+  },
+  sameAs: [`https://${profile.github}`, `https://${profile.linkedin}`],
+}
 ---
 
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={siteUrl} />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<title>Luana Vallejos — Front End & Mobile Developer</title>
-<meta name="description" content="Luana Vallejos. Front End & Mobile Developer. React, Next.js y Flutter" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<title>{pageTitle}</title>
+<meta name="description" content={pageDescription} />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={siteUrl} />
+<meta property="og:site_name" content="Luana Vallejos" />
+<meta property="og:locale" content="es_AR" />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDescription} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content={ogImageAlt} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={pageDescription} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={ogImageAlt} />
+
+<script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Space+Mono:wght@400;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
